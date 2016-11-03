@@ -1,4 +1,4 @@
-package sg.kristjan.Codilitiy;
+package sg.kristjan.Codilitiy.demo_test;
 
 // you can also use imports, for example:
 // import java.util.*;
