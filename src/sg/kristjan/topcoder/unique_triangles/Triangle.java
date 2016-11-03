@@ -8,17 +8,14 @@ class Triangle {
     private double ca;
     private double[] angles = new double[3];
     private static final double ROUND = 100000000.0;
-    public double[] getAngles() {
-        return angles;
-    }
 
     Triangle(Point a, Point b, Point c) {
         this.ab = a.dist(b);
         this.bc = b.dist(c);
         this.ca = c.dist(a);
-        angles[0] = angleCos(a, b, c);
-        angles[1] = angleCos(b, c, a);
-        angles[2] = angleCos(c, a, b);
+        angles[0] = angleCosine(a, b, c);
+        angles[1] = angleCosine(b, c, a);
+        angles[2] = angleCosine(c, a, b);
         Arrays.sort(angles);
     }
 
@@ -37,9 +34,9 @@ class Triangle {
         return false;
     }
 
-    private double angleCos(Point a, Point b, Point c) {
-        Point vecAb = new Point(b.x - a.x, b.y - a.y);
-        Point vecBc = new Point(c.x - b.x, c.y - b.y);
-        return Math.round(((vecAb.x * vecBc.x + vecAb.y * vecBc.y) / (a.dist(b) * b.dist(c))) * ROUND) / ROUND;
+    private double angleCosine(Point a, Point b, Point c) {
+        Point firstVector = new Point(b.x - a.x, b.y - a.y);
+        Point secondVector = new Point(c.x - b.x, c.y - b.y);
+        return Math.round(((firstVector.x * secondVector.x + firstVector.y * secondVector.y) / (a.dist(b) * b.dist(c))) * ROUND) / ROUND;
     }
 }
