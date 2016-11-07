@@ -49,6 +49,8 @@ package sg.kristjan.topcoder.srm698.division2;
  * Can there be a faster solution or something which less memory? The time and space are both O(n). Can I do better?
  * Yes, I can iterate through the original string and use charAt method to get the character.
  * Space will still be O(n) though, because we need to return a new string.
+ *
+ * Time it took to solve: 22 minutes.
  **/
 
 public class Initials {
